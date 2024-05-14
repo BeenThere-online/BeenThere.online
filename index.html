@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>BeenThere | Your AI Powered Trip Assistant</title>
+  <meta name="title" content="AI Powered Trip Assistant">
+  <meta name="keywords" content="Trip planner">
+  <meta name="description" content="Your AI Powered Trip Planner">
+  <!-- Favicons -->
+  <link href="assets/img/icon.png" rel="icon">
+  <link href="assets/img/icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="d-flex flex-column">
+
+      <div class="profile">
+        <img src="assets/img/Logo.png" alt="BeenThere">
+        <h1 class="text-light"><a href="index.html">BeenThere</a></h1>
+        <div class="social-links mt-3 text-center">
+
+          <a href="https://www.tiktok.com/@beenthereonline?_t=8mKNqNEzBPp&_r=1&fbclid=PAZXh0bgNhZW0CMTEAAaYWZiTsNtr5ygB1bfOCjhJzK0NNSYff8y33g1gt6ZzRf-0ZWrPCGKvbvkY_aem_AZ7OhNUdag7N7VLAgnyXyZJ9SStQfNZ2_gNPZTNhTsd-ibt9a2oCDI4-czQpwZAESrNlBgBkvtG3a99kCHXsb2c9" class="tiktok"><i class="bx bxl-tiktok"></i></a>
+          <a href="https://www.instagram.com/beenthere.online?igsh=NGx5OXJmaGxiaDV0" class="instagram"><i class="bx bxl-instagram"></i></a>
+        </div>
+      </div>
+
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>
+          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="#planwizard" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Plan Wizard</span></a></li>
+          <li><a href="#trending" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Trending</span></a></li>
+          <li><a href="#previousplans" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Previous Plans</span></a></li>
+          <li><a href="#account" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Account</span></a></li>
+          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>BeenThere</h1>
+      <p>Travel never been this <span class="typed" data-typed-items="easier, funnier, enjoyable"></span></p>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <!-- Bu kısma başlıktan sonra ai'ya istek atabilmesi için multiple choice downbar ekleme çalışıyorum, ama başaramadım.-->
+    <section id="planwizard" class="planner">
+      <div class="container">
+       <section id="planwizard" class="planner">
+        <div class="section-title">
+          <h2>Plan Wizard</h2>
+          <section class="vh-500 d-flex justify-content-center align-items-center">
+            <div class="container py-100 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-200">
+                <div class="col col-lg-30 col-xl-20">
+                  <div class="card rounded-3" style="background-color: black;">
+                    <div class="card-body p-4" style="color: white;">
+                      <form id="preferencesForm">
+                        <style>
+                          .text-white {
+                            color: rgb(255, 255, 255);
+                          }
+                      
+                
+                          .options input[type="checkbox"] {
+                            filter: hue-rotate(190deg);
+                          }  </style>
+                        <div class="question">
+                          <h5><b>What kind of trip are you interested in?</h5></b>
+                          <div class="options">
+                            <label for="relaxation">
+                              <input type="checkbox" id="relaxation" name="trip_type[]" value="Relaxation">
+                              Relaxation
+                            </label>
+                            <label for="adventure">
+                              <input type="checkbox" id="adventure" name="trip_type[]" value="Adventure">
+                              Adventure
+                            </label>
+                            <label for="cultural_immersion">
+                              <input type="checkbox" id="cultural_immersion" name="trip_type[]" value="Cultural Immersion">
+                              Cultural Immersion
+                            </label>
+                          </div>
+                        </div>
+             <br>
+            
+             <div class="question">
+              <h5><b>When are you hoping to travel?</b></h5>
+              <div class="options">
+                <label for="flexible_dates">
+                  <input type="checkbox" id="flexible_dates" name="travel_time[]" value="Flexible Dates">
+                  Flexible Dates
+                </label>
+                <label for="specific_dates">
+                  <input type="checkbox" id="specific_dates" name="travel_time[]" value="Specific Dates">
+                  Specific Dates
+                </label>
+              </div>
+            </div>
+            <br>
+            <div class="question">
+              <h5><b>How long do you plan to be away?</b></h5>
+              <div class="options">
+                <label for="weekend_getaway">
+                  <input type="checkbox" id="weekend_getaway" name="duration[]" value="Weekend getaway">
+                  Weekend getaway
+                </label>
+                <label for="week_long_vacation">
+                  <input type="checkbox" id="week_long_vacation" name="duration[]" value="Week-long vacation">
+                  Week-long vacation
+                </label>
+                <label for="extended_trip">
+                  <input type="checkbox" id="extended_trip" name="duration[]" value="Extended trip">
+                  Extended trip
+                </label>
+              </div>
+            </div>
+            <br>
+            <div class="question">
+              <h5><b>Who are you traveling with?</b></h5>
+              <div class="options">
+                <label for="solo">
+                  <input type="checkbox" id="solo" name="travelers[]" value="Solo">
+                  Solo
+                </label>
+                <label for="couple">
+                  <input type="checkbox" id="couple" name="travelers[]" value="Couple">
+                  Couple
+                </label>
+                <label for="family">
+                  <input type="checkbox" id="family" name="travelers[]" value="Family">
+                  Family
+                </label>
+              </div>
+            </div>
+            <br>
+            
+            <div class="question">
+              <h5><b>Do you have any preferred destinations in mind?</b></h5>
+              <div class="options">
+                <label for="open_to_suggestions">
+                  <input type="checkbox" id="open_to_suggestions" name="destinations[]" value="Open to suggestions">
+                  Open to suggestions
+                </label>
+                <label for="specific_destinations">
+                  <input type="checkbox" id="specific_destinations" name="destinations[]" value="Specific destinations">
+                  Specific regions/countries
+                </label>
+              </div>
+            </div>
+            <br>
+            
+            <div class="question">
+              <h5><b>What kind of pace do you prefer for your trip?</b></h5>
+              <div class="options">
+                <label for="relaxed_leisurely">
+                  <input type="checkbox" id="relaxed_leisurely" name="pace[]" value="Relaxed and leisurely">
+                  Relaxed and leisurely
+                </label>
+                <label for="action_packed">
+                  <input type="checkbox" id="action_packed" name="pace[]" value="Action-packed with activities">
+                  Action-packed with activities
+                </label>
+              </div>
+            </div>
+            <br>
+            
+            <div class="question">
+              <h5><b>What is your food preference?</b></h5>
+              <div class="options">
+                <label for="vegetarian">
+                  <input type="checkbox" id="vegetarian" name="food_preference[]" value="Vegetarian">
+                  Vegetarian
+                </label>
+                <label for="vegan">
+                  <input type="checkbox" id="vegan" name="food_preference[]" value="Vegan">
+                  Vegan
+                </label>
+                <label for="pescetarian">
+                  <input type="checkbox" id="pescetarian" name="food_preference[]" value="Pescetarian">
+                  Pescetarian
+                </label>
+                <label for="no_preference">
+                  <input type="checkbox" id="no_preference" name="food_preference[]" value="No Preference">
+                  No Preference
+                </label>
+              </div>
+
+
+      <br>    
+</div>
+<button type="button" onclick="getSelectedCheckboxes()">Plan Your Trip!</button>
+</section>
+
+<!--<textarea id="output" rows="4" cols="50"></textarea>-->
+            <section id="checkboxesSection" class="vh-500 d-flex justify-content-center align-items-center">
+              <div class="container py-100 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                  <div class="col col-lg-30 col-xl-20">
+                    <div class="card rounded-3" style="background-color: black;">
+                      <div class="card-body p-4" style="color: white;"> <!-- Change text color to white -->
+                        <p class="mb-2"><span class="h2 me-2 text-white">Plan</span></p>
+                        <div class="checkbox-wrapper-15">
+                          <input class="inp-cbx" id="cbx-15" type="checkbox" style="display: none;"/>
+                          <label class="cbx" for="cbx-15">
+                            <span>
+                              <svg width="12px" height="9px" viewbox="0 0 12 9">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span class="text-white">Kahvaltıcılar Sokağında Kahvaltı</span>
+                          </label>
+                        </div>
+                        <!-- Add five more checkboxes with similar structure as above -->
+                        <div class="checkbox-wrapper-15">
+                          <input class="inp-cbx" id="cbx-16" type="checkbox" style="display: none;"/>
+                          <label class="cbx" for="cbx-16">
+                            <span>
+                              <svg width="12px" height="9px" viewbox="0 0 12 9">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span class="text-white">Beşiktaş Çarşı Gezme</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-wrapper-15">
+                          <input class="inp-cbx" id="cbx-17" type="checkbox" style="display: none;"/>
+                          <label class="cbx" for="cbx-17">
+                            <span>
+                              <svg width="12px" height="9px" viewbox="0 0 12 9">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span class="text-white">Meşhur Karadeniz Dönerde Öğlen Yemeği</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-wrapper-15">
+                          <input class="inp-cbx" id="cbx-18" type="checkbox" style="display: none;"/>
+                          <label class="cbx" for="cbx-18">
+                            <span>
+                              <svg width="12px" height="9px" viewbox="0 0 12 9">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span class="text-white">Deniz Müzesi Ziyaret</span>
+                          </label>
+                        </div>
+                        <div class="checkbox-wrapper-15">
+                          <input class="inp-cbx" id="cbx-19" type="checkbox" style="display: none;"/>
+                          <label class="cbx" for="cbx-19">
+                            <span>
+                              <svg width="12px" height="9px" viewbox="0 0 12 9">
+                                <polyline points="1 5 4 8 11 1"></polyline>
+                              </svg>
+                            </span>
+                            <span class="text-white">Ortaköy'de Akşam Yemeği ve Ardından Eğlence</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+        
+
+            <style>
+              .checkbox-wrapper-15 .cbx {
+                -webkit-user-select: none;
+                user-select: none;
+                -webkit-tap-highlight-color: transparent;
+                cursor: pointer;
+              }
+              .checkbox-wrapper-15 .cbx span {
+                display: inline-block;
+                vertical-align: middle;
+                transform: translate3d(0, 0, 0);
+              }
+              .checkbox-wrapper-15 .cbx span:first-child {
+                position: relative;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                transform: scale(1);
+                vertical-align: middle;
+                border: 1px solid #B9B8C3;
+                transition: all 0.2s ease;
+              }
+              .checkbox-wrapper-15 .cbx span:first-child svg {
+                position: absolute;
+                z-index: 1;
+                top: 8px;
+                left: 6px;
+                fill: none;
+                stroke: white;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-dasharray: 16px;
+                stroke-dashoffset: 16px;
+                transition: all 0.3s ease;
+                transition-delay: 0.1s;
+                transform: translate3d(0, 0, 0);
+              }
+              .checkbox-wrapper-15 .cbx span:first-child:before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: #ffbd59;
+                display: block;
+                transform: scale(0);
+                opacity: 1;
+                border-radius: 50%;
+                transition-delay: 0.2s;
+              }
+              .checkbox-wrapper-15 .cbx span:last-child {
+                margin-left: 8px;
+              }
+              .checkbox-wrapper-15 .cbx span:last-child:after {
+                content: "";
+                position: absolute;
+                top: 8px;
+                left: 0;
+                height: 1px;
+                width: 100%;
+                background: #B9B8C3;
+                transform-origin: 0 0;
+                transform: scaleX(0);
+              }
+              .checkbox-wrapper-15 .cbx:hover span:first-child {
+                border-color: #ffbd59;
+              }
+            
+              .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:first-child {
+                border-color: #ffbd59;
+                background: #ffbd59;
+                animation: check-15 0.6s ease;
+              }
+              .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:first-child svg {
+                stroke-dashoffset: 0;
+              }
+              .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:first-child:before {
+                transform: scale(2.2);
+                opacity: 0;
+                transition: all 0.6s ease;
+              }
+              .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:last-child {
+                color: #B9B8C3;
+                transition: all 0.3s ease;
+              }
+              .checkbox-wrapper-15 .inp-cbx:checked + .cbx span:last-child:after {
+                transform: scaleX(1);
+                transition: all 0.3s ease;
+              }
+            
+              @keyframes check-15 {
+                50% {
+                  transform: scale(1.2);
+                }
+              }
+            </style>
+            
+          </div>
+        </div>
+<script>
+  function showCheckboxes() {
+  var checkboxesSection = document.getElementById('checkboxesSection');
+  checkboxesSection.style.display = 'block';
+          }
+</script>
+      
+<script>
+  (function(d, s, id) {
+      if (d.getElementById(id)) {
+          if (window.__TOMORROW__) {
+              window.__TOMORROW__.renderWidget();
+          }
+          return;
+      }
+      const fjs = d.getElementsByTagName(s)[0];
+      const js = d.createElement(s);
+      js.id = id;
+      js.src = "https://www.tomorrow.io/v1/widget/sdk/sdk.bundle.min.js";
+
+      fjs.parentNode.insertBefore(js, fjs);
+  })(document, 'script', 'tomorrow-sdk');
+  </script>
+
+  <div class="tomorrow"
+     data-location-id="107851"
+     data-language="EN"
+     data-unit-system="METRIC"
+     data-skin="dark"
+     data-widget-type="aqiPollutant"
+     style="padding-bottom:22px;position:relative;"
+  >
+    <a
+      href="https://www.tomorrow.io/weather-api/"
+      rel="nofollow noopener noreferrer"
+      target="_blank"
+      style="position: absolute; bottom: 0; transform: translateX(-50%); left: 50%;"
+    >
+      <img
+        alt="Powered by the Tomorrow.io Weather API"
+        src="https://weather-website-client.tomorrow.io/img/powered-by.svg"
+        width="250"
+        height="18"
+      />
+    </a>
+  </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Facts Section ======= -->
+    <section id="trending" class="trending">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Trending</h2>
+          <p>Curious where fellow adventurerbees are jetting off to next? Look no further! This page is your one-stop shop for travel inspiration, showcasing the hottest trending trip plans from our BeenThere community.</p>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/young-female-traveler-with-backpack-binoculars.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/young-female-traveler-with-backpack-binoculars.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="User1"><i class="bx bx-plus"></i></a>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/happy-woman-enjoying-taking-pictures-holiday.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/happy-woman-enjoying-taking-pictures-holiday.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="User2"><i class="bx bx-plus"></i></a>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/low-angle-man-posing-train.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/low-angle-man-posing-train.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="User3"><i class="bx bx-plus"></i></a>
+                
+              </div>
+            </div>
+          </div>
+          
+
+              
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Facts Section -->
+
+    <!-- ======= Skills Section ======= -->
+    <section id="previousplans" class="previous">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Previous Plans</h2>
+          <p>Ever dreamt of revisiting that incredible adventure you planned with BeenThere? This page is your personal vault of past trips, allowing you to relive the magic and plan exciting encores.</p>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/360_F_146567837_c6Y6q0382DrpEVvVPTvOR1AlvVbC2qmV.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/360_F_146567837_c6Y6q0382DrpEVvVPTvOR1AlvVbC2qmV.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/Eiffel_tower-Paris.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/Eiffel_tower-Paris.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/tokyo-japan-TOKYOTG0621-52012ff551dc46c4a87ac8e3151307a4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="assets/img/tokyo-japan-TOKYOTG0621-52012ff551dc46c4a87ac8e3151307a4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Skills Section -->
+
+    <!-- ======= Resume Section ======= -->
+    <section id="account" class="account">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Account</h2>
+          
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <img src="assets/img/stephanie-liverani-Zz5LQe-VSMY-unsplash.jpg" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <h3>Maya Singh</h3>
+          
+          <div class="row">
+            <div class="col-lg-14">
+              <ul>
+                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Recent Adventure:</strong> <span>Documented ancient temples in the jungles of Borneo</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Next Destination:</strong> <span> Lost city in the deserts of Mongolia</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Likes:</strong> <span>Exploring historical sites, trekking, photography, sustainable travel, learning new cultures, spicy food (especially from her travels!), trying new things, pushing her limits</span></li>
+              </ul>
+            </div>
+          </div>
+         
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="Our Favorites" class="portfolio section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Our Favorites</h2>
+          <p>Our all time favorites for your next trip.</p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">Restaurants</li>
+              <li data-filter=".filter-card">Places</li>
+              <li data-filter=".filter-web">Activities</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/high-angle-delicious-food-juice.jpg" class="img-fluid" alt="Restaurants">
+              <div class="portfolio-links">
+                <a href="assets/img/high-angle-delicious-food-juice.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Food 1"><i class="bx bx-plus"></i></a>
+                <a href="https://www.food.com/" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/front-view-fried-meat-with-greens-inside-dark-plate-brown-wooden-desk-meal-food-dinner.jpg" class="img-fluid" alt="Restaurants">
+              <div class="portfolio-links">
+                <a href="assets/img/front-view-fried-meat-with-greens-inside-dark-plate-brown-wooden-desk-meal-food-dinner.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Food 2"><i class="bx bx-plus"></i></a>
+                <a href="https://www.food.com/" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/eggplant-caviar-topped-with-herbs-pomegranate.jpg" class="img-fluid" alt="Restaurants">
+              <div class="portfolio-links">
+                <a href="assets/img/eggplant-caviar-topped-with-herbs-pomegranate.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Food 3"><i class="bx bx-plus"></i></a>
+                <a href="https://www.food.com/" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/goreme-town-twilight-cappadocia-turkey.jpg" class="img-fluid" alt="Places">
+              <div class="portfolio-links">
+                <a href="assets/img/goreme-town-twilight-cappadocia-turkey.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Place 1"><i class="bx bx-plus"></i></a>
+                <a href="https://www.google.com/search?q=tourist+places&rlz=1C1CHZN_trTR1100TR1100&oq=touristic+pla&gs_lcrp=EgZjaHJvbWUqDAgCEAAYChjJAxiABDIGCAAQRRg5Mg0IARAAGJIDGIAEGIoFMgwIAhAAGAoYyQMYgAQyCQgDEAAYChiABDIJCAQQABgKGIAEMgkIBRAAGAoYgAQyBggGEEUYPDIGCAcQRRg80gEINjY0MGowajSoAgCwAgE&sourceid=chrome&ie=UTF-8" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/general-view-toledo-from-hill.jpg" class="img-fluid" alt="Places">
+              <div class="portfolio-links">
+                <a href="assets/img/general-view-toledo-from-hill.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Place 2"><i class="bx bx-plus"></i></a>
+                <a href="pohttps://www.google.com/search?q=tourist+places&rlz=1C1CHZN_trTR1100TR1100&oq=touristic+pla&gs_lcrp=EgZjaHJvbWUqDAgCEAAYChjJAxiABDIGCAAQRRg5Mg0IARAAGJIDGIAEGIoFMgwIAhAAGAoYyQMYgAQyCQgDEAAYChiABDIJCAQQABgKGIAEMgkIBRAAGAoYgAQyBggGEEUYPDIGCAcQRRg80gEINjY0MGowajSoAgCwAgE&sourceid=chrome&ie=UTF-8" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/entrance-gate-sunset-istanbul-turkey.jpg" class="img-fluid" alt="Places">
+              <div class="portfolio-links">
+                <a href="assets/img/entrance-gate-sunset-istanbul-turkey.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Place 3"><i class="bx bx-plus"></i></a>
+                <a href="phttps://www.google.com/search?q=tourist+places&rlz=1C1CHZN_trTR1100TR1100&oq=touristic+pla&gs_lcrp=EgZjaHJvbWUqDAgCEAAYChjJAxiABDIGCAAQRRg5Mg0IARAAGJIDGIAEGIoFMgwIAhAAGAoYyQMYgAQyCQgDEAAYChiABDIJCAQQABgKGIAEMgkIBRAAGAoYgAQyBggGEEUYPDIGCAcQRRg80gEINjY0MGowajSoAgCwAgE&sourceid=chrome&ie=UTF-8" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/hanny-naibaho-aWXVxy8BSzc-unsplash.jpg" class="img-fluid" alt="Activities">
+              <div class="portfolio-links">
+                <a href="assets/img/hanny-naibaho-aWXVxy8BSzc-unsplash.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Activity 1"><i class="bx bx-plus"></i></a>
+                <a href="https://www.google.com/search?q=activities&rlz=1C1CHZN_trTR1100TR1100&oq=activities&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORjJAxiABDINCAEQABiSAxiABBiKBTIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIGCAcQRRg90gEINTM2N2owajmoAgCwAgA&sourceid=chrome&ie=UTF-8" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/dat-vo-usGKkIb69ms-unsplash.jpg" class="img-fluid" alt="Activities">
+              <div class="portfolio-links">
+                <a href="assets/img/dat-vo-usGKkIb69ms-unsplash.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Activity 2"><i class="bx bx-plus"></i></a>
+                <a href="https://www.google.com/search?q=activities&rlz=1C1CHZN_trTR1100TR1100&oq=activities&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORjJAxiABDINCAEQABiSAxiABBiKBTIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIGCAcQRRg90gEINTM2N2owajmoAgCwAgA&sourceid=chrome&ie=UTF-8" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/young-men-going-hike-together.jpg" class="img-fluid" alt="Activities">
+              <div class="portfolio-links">
+                <a href="assets/img/young-men-going-hike-together.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Activity 3"><i class="bx bx-plus"></i></a>
+                <a href="https://www.google.com/search?q=activities&rlz=1C1CHZN_trTR1100TR1100&oq=activities&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORjJAxiABDINCAEQABiSAxiABBiKBTIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIGCAcQRRg90gEINTM2N2owajmoAgCwAgA&sourceid=chrome&ie=UTF-8" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Services Section ======= -->
+    <!--<section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+            <div class="icon"><i class="bi bi-briefcase"></i></div>
+            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon"><i class="bi bi-card-checklist"></i></div>
+            <h4 class="title"><a href="">Dolor Sitema</a></h4>
+            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon"><i class="bi bi-bar-chart"></i></div>
+            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon"><i class="bi bi-binoculars"></i></div>
+            <h4 class="title"><a href="">Magni Dolores</a></h4>
+            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon"><i class="bi bi-brightness-high"></i></div>
+            <h4 class="title"><a href="">Nemo Enim</a></h4>
+            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+          </div>
+        </div>
+
+      </div>
+    </section>---><!-- End Services Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>What Our TravelerBees Say?</h2>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  BeenThere took the overwhelm out of planning our family trip to Bali! They listened to what we wanted (relaxation, culture, a touch of adventure) and crafted a perfect itinerary. From the breathtaking beachfront villa to the hidden gem temples, everything was amazing. We wouldn't have found half of it on our own. HIGHLY recommend!
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  BeenThere planned our 10th anniversary trip to Paris. They found us a charming boutique hotel in a walkable neighborhood and arranged private tours that avoided the tourist traps. We got to experience the real Paris, from hidden art galleries to Michelin-starred meals. It was pure indulgence!
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <h3>Sara Wilsson</h3>
+        
+              </div>
+            </div><!-- End testimonial item -->
+
+       
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  TripMaster planned the ultimate food adventure in Italy! We went beyond the usual tourist fare, indulging in cooking classes, private winery tours, and hidden trattorias (restaurants) recommended by locals.  We even had a truffle hunting excursion in Tuscany!  My taste buds are still thanking me!
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <h3>Matt Brandon</h3>
+               
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Traveling on a shoestring? TripMaster is your BFF (best friend forever)!  They planned a month-long trip through Southeast Asia for me, finding the most affordable hostels, local transportation options, and even free walking tours. They even recommended hidden gem street food stalls with the BEST eats! I wouldn't have been able to do it without them!
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+            
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <section id="FAQ" class="FAQ">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>FAQ</h2>
+          <p>At BeenThere, we're here to make planning your trip as smooth and stress-free as possible.  Here are some of our most frequently asked questions:</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+          
+            <h4 class="title"><a href="">How does AI help with trip planning?</a></h4>
+            <p class="description">BeenThere leverages the power of artificial intelligence to personalize your travel experience.  Our AI algorithms analyze vast amounts of data, including travel trends, destination information, and user preferences, to create itineraries that perfectly match your interests and budget.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+            
+            <h4 class="title"><a href="">How will my data be used by BeenThere's services?</a></h4>
+            <p class="description">BeenThere prioritizes your privacy while creating your dream vacation. We use the information you provide to understand your travel style and recommend destinations you'll love.  This information, along with your chosen itinerary, is then securely used to book flights, hotels, and activities with our trusted partners. To ensure a smooth trip, we may also send you updates like flight confirmations and activity reminders.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+           
+            <h4 class="title"><a href="">Is my data secure?</a></h4>
+            <p class="description">Absolutely! We take data security very seriously. We use industry-standard security measures to protect your information and only share it with trusted partners who adhere to strict privacy protocols.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+          
+            <h4 class="title"><a href="">What is your cancellation policy?</a></h4>
+            <p class="description">Our cancellation policy varies depending on the specific services booked. We will provide you with a detailed breakdown of cancellation terms before you confirm your trip.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+          
+            <h4 class="title"><a href="">What if my plans change while I'm traveling?</a></h4>
+            <p class="description">Don't worry, we're here for you!  Our team is available 24/7 to assist with any changes or unexpected situations that may arise during your trip.</p>
+          </div>
+          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+           
+            <h4 class="title"><a href="">Still have questions?</a></h4>
+            <p class="description">If you can't find the answer you're looking for here, feel free to contact us directly via our contact form, phone, or social media. We're happy to help!</p>
+          </div>
+        </div>
+
+      </div>
+          
+     
+    </section><!-- End Resume Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>We'd love to hear from you and help make your travel dreams a reality. Here are a few ways to get in touch:</p>
+        </div>
+
+        <div class="row" data-aos="fade-in">
+
+          <div class="col-lg-5 d-flex align-items-stretch">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>Yıldız, Çırağan Cd., 34349 Beşiktaş/İstanbul</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>beenthere.online@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+90 505 368 12 68</p>
+              </div>
+
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.2269887832667!2d29.00668417528324!3d41.04216497134568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7a2a2c3b963%3A0x7671d1b9817b8519!2sBahcesehir%20University!5e0!3m2!1sen!2str!4v1715560370079!5m2!1sen!2str" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+            </div>
+
+          </div>
+
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
